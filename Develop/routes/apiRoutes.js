@@ -1,20 +1,43 @@
 //TODO Require the roouter and db items needed
 const path = require('path');
 const router = require('express').router();
+const api = require('');
 //TODO Set up a get/post/delete methods as responses to the database
-router.get('/notes', (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/notes"));
-});
+// api.get('/notes', (req, res) => {
+//     res.sendFile(path.join(__dirname, "../public/notes"));
+// });
 
-router.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/index.html"));
-});
-//TODO Export the router
+// api.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, "../public/index.html"));
+// });
 
-//TODO Require the path and require items needed
+// api.get('/', (req, res) => {
+//     readFromFile('./db/tips.json').then((data) => res.json(JSON.parse(data)));
+//   });
+  
+  // POST Route for a new UX/UI tip
+  tips.post('/', (req, res) => {
+    console.log(req.body);
+  
+    const { noteTitle, note } = req.body;
+  
+    if (req.body) {
+      const newNote = {
+        note,
+        noteTitle,
+        note_id: uuidv4(),
+      };
+  
+      readAndAppend(newNote, '../../db/db.json');
+      res.json(`Note added successfully 🚀`);
+    } else {
+      res.error('Error in adding tip');
+    }
+  });
 
 
-//TODO Need to add the router.get functionality for each of the html pages
+
+
 
 
 //Export the routes

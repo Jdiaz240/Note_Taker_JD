@@ -1,1 +1,4 @@
-# Note_Taker_JD
+# Note Taker 
+
+Completed By Joshua Diaz
+
